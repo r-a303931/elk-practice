@@ -1,0 +1,11 @@
+#+title: ELK Practice Repo
+
+Terraform/Ansible code used to set up:
+
+1. A VyOS router to manage the network and segment it
+2. A root CA to distribute certificates across a network
+3. An elasticsearch cluster with 2 nodes
+4. A Logstash box to accept logs
+5. A Kibana box to manage the elasticsearch cluster
+6. 5 random boxes which have AuditBeat set up on them as well as an attacker's SSH key as root
+7. MITRE Caldera to emulate an APT
