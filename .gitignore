@@ -3,3 +3,4 @@
 *.log
 tmp/
 tf/.terraform*
+tf/terraform.tfstate*
