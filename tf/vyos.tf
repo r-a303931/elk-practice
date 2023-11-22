@@ -1,23 +1,3 @@
-terraform {
-  required_version = ">= 0.13"
-  required_providers {
-    libvirt = {
-      source  = "dmacvicar/libvirt"
-      version = "0.7.1"
-    }
-  }
-}
-
-
-provider "libvirt" {
-  uri = "qemu+ssh://arioux@pluto.infra.arioux.org/system"
-}
-
-variable "resource_prefix" {
-  type    = string
-  default = "elkpractice"
-}
-
 resource "libvirt_network" "management_network" {
   name = "${var.resource_prefix}_management"
   mode = "none"
@@ -26,8 +6,16 @@ resource "libvirt_network" "management_network" {
 }
 
 resource "libvirt_cloudinit_disk" "management_router_ci" {
-  name      = "${var.resource_prefix}_management_router_ci.iso"
-  user_data = file("./vyos/cloudinit.cfg")
+  name = "${var.resource_prefix}_management_router_ci.iso"
+  user_data = templatefile("./vyos/cloudinit.cfg", {
+    wan_ip   = local.wan_router_ip
+    wan_mask = var.wan_snmask
+    lan_ip   = local.lan_router_ip
+    lan_mask = local.lan_snmask
+    gateway  = var.wan_gateway
+
+    ip_ca = cidrhost(local.lan_subnet, var.addr_ca)
+  })
 }
 
 resource "libvirt_domain" "vyos_router" {
@@ -43,6 +31,7 @@ resource "libvirt_domain" "vyos_router" {
 
   network_interface {
     network_name = "ccdc"
+    mac          = "52:54:00:32:b0:b3"
   }
 
   network_interface {

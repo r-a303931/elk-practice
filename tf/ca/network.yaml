@@ -1,0 +1,14 @@
+version: 2
+ethernets:
+  eth0:
+    match:
+      name: e*
+    addresses:
+      - "${ip}/${snmask}"
+    nameservers:
+      addresses: ["${gateway}"]
+      search: [elk.ccdc.vms.arioux.org]
+    routes:
+      - to: default
+        via: "${gateway}"
+        metric: 3

@@ -1,0 +1,8 @@
+#cloud-config
+fqdn: ca.elk.ccdc.vms.arioux.org
+hostname: ca
+prefer_fqdn_over_hostname: true
+ssh_authorized_keys:
+  - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJBkjCABI1cjc4EOsur1JwC6YR9Tk+qxJW4im80I/Elh arioux@cerberus
+  - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPBhlRIKh7kEnwD/wZoYhQUbO++X3jJnPLmmstwPxN6g arioux@hermes
+disable_root: false
