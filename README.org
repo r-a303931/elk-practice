@@ -7,5 +7,16 @@ Terraform/Ansible code used to set up:
 3. An elasticsearch cluster with 2 nodes
 4. A Logstash box to accept logs
 5. A Kibana box to manage the elasticsearch cluster
-6. 5 random boxes which have AuditBeat set up on them as well as an attacker's SSH key as root
+6. Preset boxes which have AuditBeat set up on them as well as an attacker's SSH key as root
+   The operating systems are as follows:
+   1. Debian 10
+   2. Debian 12
+   3. Ubuntu 16.04 server
+   4. Ubuntu 22.04 server
+   5. Fedora Server 20
+   6. Fedora Cloud 39
+   7. CentOS 7
+   8. CentOS Stream 9
+   9. OpenSUSE 15.5
+   10. Arch (November 2023)
 7. MITRE Caldera to emulate an APT

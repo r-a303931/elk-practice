@@ -15,7 +15,7 @@ resource "libvirt_cloudinit_disk" "ca_ci" {
   name      = "${var.resource_prefix}_ca_ci.iso"
   user_data = file("ca/cloudinit.yaml")
   meta_data = file("ca/metadata.yaml")
-  network_config = templatefile("ca/network.yaml", {
+  network_config = templatefile("network.yaml", {
     ip      = cidrhost(local.lan_subnet, var.addr_ca)
     snmask  = local.lan_snmask
     gateway = local.lan_router_ip

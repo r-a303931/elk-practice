@@ -1,0 +1,2 @@
+instance-id: elk-esnode${index}
+local-hostname: esnode${index}

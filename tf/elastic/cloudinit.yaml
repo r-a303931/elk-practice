@@ -1,5 +1,5 @@
 #cloud-config
-fqdn: ca.elk.ccdc.vms.arioux.org
+fqdn: esnode${index}.elk.ccdc.vms.arioux.org
 hostname: ca
 prefer_fqdn_over_hostname: true
 ssh_authorized_keys:
