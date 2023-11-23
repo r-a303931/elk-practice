@@ -4,3 +4,4 @@
 tmp/
 tf/.terraform*
 tf/terraform.tfstate*
+ansible/inventory

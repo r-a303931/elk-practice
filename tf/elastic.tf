@@ -1,6 +1,6 @@
 resource "libvirt_volume" "elastic_disk" {
   name             = "${var.resource_prefix}_esnode.${count.index}.qcow2"
-  base_volume_name = ""
+  base_volume_name = "Fedora-Cloud-Base-39-1.5.x86_64.qcow2"
   base_volume_pool = "isos"
   count            = var.count_elastic_nodes
 }

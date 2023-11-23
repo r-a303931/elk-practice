@@ -14,7 +14,9 @@ resource "libvirt_cloudinit_disk" "management_router_ci" {
     lan_mask = local.lan_snmask
     gateway  = var.wan_gateway
 
-    ip_ca = cidrhost(local.lan_subnet, var.addr_ca)
+    ip_ca      = cidrhost(local.lan_subnet, var.addr_ca)
+    ip_esnode0 = cidrhost(local.lan_subnet, var.addr_elastic_start)
+    ip_esnode1 = cidrhost(local.lan_subnet, var.addr_elastic_start + 1)
   })
 }
 

@@ -5,6 +5,10 @@ terraform {
       source  = "dmacvicar/libvirt"
       version = "0.7.1"
     }
+    local = {
+      source  = "hashicorp/local"
+      version = "2.4.0"
+    }
   }
 }
 
@@ -56,7 +60,7 @@ variable "addr_ca" {
 
 variable "addr_elastic_start" {
   type    = number
-  default = 10
+  default = 3
 }
 
 variable "count_elastic_nodes" {

@@ -1,0 +1,9 @@
+ca              ansible_ssh_hostname=${ca_ip}
+%{ for index, node in esnodes ~}
+esnode${index}         ansible_ssh_hostname=${cidrhost(lan_subnet, addr_elastic_start + index)}
+%{ endfor ~}
+
+[es]
+%{ for index, node in esnodes ~}
+esnode${index}
+%{ endfor ~}

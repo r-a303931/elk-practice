@@ -1,0 +1,6 @@
+---
+- gather_facts: false
+  hosts: ca
+
+  tasks:
+    - debug: msg='hi'
